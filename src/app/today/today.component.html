@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="col-md-6 offset-md-3">
+        <div class="col-sm-12 text-center">
+            <div class="input-group mb-3">
+                <input type="text" placeholder="Enter city name" class="form-control" #input>
+                <button class="btn btn-outline-secondary" (click)="getCity(input.value)">Search</button>
+            </div>
+            <h5>Current weather and forecast in your city...</h5>
+            <h2>Weather in {{weather.name}}, {{weather.sys.country}}</h2>
+        </div>
+        <div class="col-sm-12 text-center">
+            <span class="temp">
+                <img src="http://openweathermap.org/img/wn/{{weather.weather[0].icon}}@2x.png" alt="">
+                {{weather.main.temp}}&#176;C
+            </span>
+            <p class="text-uppercase font-italic font-weight-bold">{{weather.weather[0].description}}</p>
+        </div>
+        <table class="table table-light table-striped table-hover">
+            <tbody>
+                <tr>
+                    <td>Humidity</td>
+                    <td>{{weather.main.humidity}} %</td>
+                </tr>
+                <tr>
+                    <td>Pressure</td>
+                    <td>{{weather.main.pressure}} pha</td>
+                </tr>
+                <tr>
+                    <td>Wind speed</td>
+                    <td>{{weather.wind.speed}} m/s</td>
+                </tr>
+            </tbody>
+        </table>
+        <agm-map></agm-map>
+    </div>
+</div>
